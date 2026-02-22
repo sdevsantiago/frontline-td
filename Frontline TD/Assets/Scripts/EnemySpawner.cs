@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -49,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
      */
     private bool isSpawning = false;
 
+
     void Start()
     {
         StartWave();
@@ -61,13 +63,15 @@ public class EnemySpawner : MonoBehaviour
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= spawnIntervalSeconds && enemiesLeftToSpawn > 0) {
+        if (timeSinceLastSpawn >= spawnIntervalSeconds && enemiesLeftToSpawn > 0)
+        {
             SpawnEnemy();
             timeSinceLastSpawn = 0;
             enemiesLeftToSpawn--;
         }
 
-        if (enemiesLeftToSpawn == 0) {
+        if (enemiesLeftToSpawn == 0)
+        {
             isSpawning = false;
             Debug.Log("Wave " + currentWave + " ended");
         }

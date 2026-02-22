@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 1473564056038375684}
   - component: {fileID: 1842625644154369731}
   - component: {fileID: 6830005688600867965}
-  - component: {fileID: 1551108661242768571}
-  - component: {fileID: 1367048379115495129}
-  m_Layer: 6
-  m_Name: Enemy
+  - component: {fileID: 590987097704958823}
+  m_Layer: 7
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 1}
+  m_Color: {r: 0.1607843, g: 0.83137256, b: 0.20382531, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,8 +102,8 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5256552874639415465}
-  m_BodyType: 1
-  m_Simulated: 1
+  m_BodyType: 2
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -168,7 +167,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1551108661242768571
+--- !u!114 &590987097704958823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,20 +176,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5256552874639415465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ff29996318056e9adb22e68815fd5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5830772b34ceee9b06f88ed2152f82, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  m_EditorClassIdentifier: Assembly-CSharp::Turret
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
-  movementSpeed: 2
---- !u!114 &1367048379115495129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5256552874639415465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90b429202e0c0ee593dfa50440feb16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  bulletPrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
+  targetingRange: 3
+  fireRate: 1
