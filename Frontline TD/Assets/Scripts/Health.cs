@@ -7,6 +7,10 @@ public class Health : MonoBehaviour
      * The maximum health of the object.
      */
     [SerializeField] private int maxHealth = 3;
+    /**
+     * The amount of money rewarded to the player when this object is destroyed.
+     */
+    [SerializeField] private int moneyReward = 50;
 
     /**
      * The current health of the object.
@@ -27,8 +31,10 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Die()
+    void Die()
     {
         Destroy(gameObject);
+        // reward the player with money for destroying this object
+        BuildManager.Instance.AddMoney(moneyReward);
     }
 }
