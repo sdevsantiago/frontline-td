@@ -23,6 +23,13 @@ public class Bullet : MonoBehaviour
      */
     private GameObject targetEnemy;
 
+    /**
+     * The lifetime of the bullet in seconds.
+     * The bullet will be destroyed after this time has passed to prevent
+     * it from existing indefinitely if it misses all enemies.
+     */
+    private float lifetime = 5f;
+
     public void SetTarget(GameObject enemy)
     {
         targetEnemy = enemy;
@@ -36,6 +43,17 @@ public class Bullet : MonoBehaviour
         
         rigidBody.linearVelocity = bulletSpeed * direction;
         RotateTowardsTarget();
+    }
+
+    void Update()
+    {
+        // update the bullet's lifetime
+        lifetime -= Time.deltaTime;
+        if (lifetime <= 0f)
+        {
+            // destroy the bullet after its lifetime has expired
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
