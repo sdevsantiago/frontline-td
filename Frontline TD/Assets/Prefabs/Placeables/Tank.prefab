@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6830005688600867965}
   - component: {fileID: 590987097704958823}
   m_Layer: 7
-  m_Name: Turret
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,12 +80,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 360448143
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.1607843, g: 0.83137256, b: 0.20382531, a: 1}
+  m_Color: {r: 0.7364602, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,5 +184,5 @@ MonoBehaviour:
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
   bulletPrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 3
-  fireRate: 1
+  targetingRange: 5
+  fireRate: 2
