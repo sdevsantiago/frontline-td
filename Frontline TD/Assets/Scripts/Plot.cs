@@ -46,8 +46,19 @@ public class Plot : MonoBehaviour
         if (currentTower != null) return ;
 
         // create a new tower on this plot
-        GameObject tower = BuildManager.Instance.GetSelectedTower();
+        Tower tower = BuildManager.Instance.GetSelectedTower();
+
+        if (BuildManager.Instance.GetCurrentMoney() < tower.cost)
+        {
+            // do nothing if the player does not have enough money to build this tower
+            Debug.Log("Not enough money to build this tower.");
+            return ;
+        }
+
+        // reduce the player's money by the cost of the tower
+        BuildManager.Instance.SpendMoney(tower.cost);
+
         // instantiate the selected tower on this plot
-        Instantiate(tower, transform.position, Quaternion.identity);
+        currentTower = Instantiate(tower.prefab, transform.position, Quaternion.identity);
     }
 }

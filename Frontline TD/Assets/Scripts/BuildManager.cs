@@ -9,7 +9,7 @@ public class BuildManager : MonoBehaviour
     /**
      * Array of tower prefabs that can be built by the player.
      */
-    [SerializeField] private GameObject[] towerPrefabs;
+    [SerializeField] private Tower[] towers;
 
     [Header("Attributes")]
     /**
@@ -72,8 +72,13 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public GameObject GetSelectedTower()
+    public Tower GetSelectedTower()
     {
-        return towerPrefabs[selectedTowerIndex];
+        return towers[selectedTowerIndex];
+    }
+
+    public void SetSelectedTower(int selectedTower)
+    {
+        selectedTowerIndex = selectedTower;
     }
 }
