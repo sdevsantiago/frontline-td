@@ -25,7 +25,7 @@ public class BuildManager : MonoBehaviour
     /**
      * The index of the currently selected tower in the towerPrefabs array.
      */
-    private int selectedTowerIndex = 0;
+    private int? selectedTowerIndex;
 
     void Awake()
     {
@@ -74,7 +74,9 @@ public class BuildManager : MonoBehaviour
 
     public Tower GetSelectedTower()
     {
-        return towers[selectedTowerIndex];
+        if (selectedTowerIndex == null)
+            return null;
+        return towers[(int)selectedTowerIndex];
     }
 
     public void SetSelectedTower(int selectedTower)
