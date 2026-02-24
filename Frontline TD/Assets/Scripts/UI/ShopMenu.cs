@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Menu : MonoBehaviour
+public class ShopMenu : MonoBehaviour
 {
     [Header("References")]
     /**
