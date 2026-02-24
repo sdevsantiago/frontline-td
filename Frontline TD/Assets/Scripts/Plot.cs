@@ -16,7 +16,7 @@ public class Plot : MonoBehaviour
      * The tower that is currently built on this plot. Null if no tower is built.
      */
     private GameObject currentTower;
-    
+
     /**
      * The original color of the plot, stored to reset the color when the mouse exits.
      */
@@ -25,7 +25,7 @@ public class Plot : MonoBehaviour
     void Start()
     {
         // store the original color of the plot
-        startColor = spriteRenderer.color; 
+        startColor = spriteRenderer.color;
     }
 
     void OnMouseEnter()
@@ -42,8 +42,10 @@ public class Plot : MonoBehaviour
 
     void OnMouseDown()
     {
-        // if there is already a tower built on this plot, do nothing
-        if (currentTower != null) return ;
+        // if there is already a tower built on this plot or no tower is selected, do nothing
+        if (currentTower != null
+            || BuildManager.Instance.GetSelectedTower() == null)
+            return ;
 
         // create a new tower on this plot
         Tower tower = BuildManager.Instance.GetSelectedTower();
