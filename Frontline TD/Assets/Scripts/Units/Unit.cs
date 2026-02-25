@@ -15,7 +15,7 @@ public abstract class Unit : MonoBehaviour
     /**
      * The prefab for the projectile that the turret shoots.
      */
-    [SerializeField] private Projectile projectile;
+    [SerializeField] private GameObject projectilePrefab;
 
     [Header("Attributes")]
     /**
@@ -79,10 +79,11 @@ public abstract class Unit : MonoBehaviour
 
     private void Shoot()
     {
-        // instantiate a bullet and set its target to the current enemy target
-        GameObject bullet = Instantiate(projectile.prefab, rigidBody.position, Quaternion.identity);
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetTarget(target.transform);
+        // instantiate a projectile and set its target to the current enemy target
+        GameObject projectile = Instantiate(projectilePrefab, rigidBody.position, Quaternion.identity);
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript.Initialize(projectileSpeed, projectileDamage);
+        projectileScript.SetTarget(target.transform);
     }
 
     void OnDrawGizmosSelected()
