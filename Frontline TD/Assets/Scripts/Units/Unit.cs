@@ -50,6 +50,8 @@ public abstract class Unit : MonoBehaviour
         }
         else
         {
+            RotateTowardsTarget();
+
             timeSinceLastShot += Time.deltaTime;
             if (timeSinceLastShot >= 1f / fireRate)
             {
@@ -87,7 +89,15 @@ public abstract class Unit : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         // draw a red wire disc to visualize the turret's range when selected in the editor
-        Handles.color = Color.red;
-        Handles.DrawWireDisc(rigidBody.position, Vector3.forward, targetingRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, targetingRange);
+    }
+
+    void RotateTowardsTarget()
+    {
+        Vector2 direction = enemyTarget.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }
