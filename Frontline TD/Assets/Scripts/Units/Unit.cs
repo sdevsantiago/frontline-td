@@ -30,7 +30,7 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] private int projectileDamage;
 
     /**
-     * The enemy the turret is currently targeting.
+     * The position the turret is currently targeting.
      */
     private Transform target;
     private float timeSinceLastShot;
