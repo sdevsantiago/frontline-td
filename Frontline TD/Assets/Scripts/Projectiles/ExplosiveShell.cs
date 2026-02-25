@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class ExplosiveShell : Projectile
 {
     [Header("References")]
     /**
      * The Rigidbody2D component of the bullet.
      */
     [SerializeField] private Rigidbody2D rigidBody;
-    
+
     [Header("Attributes")]
     /**
      * The speed at which the bullet moves.
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         if (!targetEnemy) return ;
 
         Vector2 direction = (targetEnemy.transform.position - transform.position).normalized;
-        
+
         rigidBody.linearVelocity = bulletSpeed * direction;
         RotateTowardsTarget();
     }
