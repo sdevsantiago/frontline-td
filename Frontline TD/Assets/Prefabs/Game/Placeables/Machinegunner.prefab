@@ -81,11 +81,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 360448143
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.020439148, b: 1, a: 1}
+  m_Sprite: {fileID: -2513990329448094127, guid: 9ed66fcf853443141a19bb2cdcd1b9dd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.12, y: 0.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -184,5 +184,5 @@ MonoBehaviour:
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
   bulletPrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 5
-  shotsPerSecond: 3
+  targetingRange: 3
+  fireRate: 2
