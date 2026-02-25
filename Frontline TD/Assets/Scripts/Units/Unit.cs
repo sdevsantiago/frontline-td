@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
     [Header("References")]
     /**
@@ -22,21 +22,23 @@ public class Unit : MonoBehaviour
     /**
      * The distance at which the turret can detect and shoot enemies.
      */
-    [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private float targetingRange;
     /**
      * The rate at which the turret shoots per second.
      */
-    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float projectileSpeed;
+    [SerializeField] private int projectileDamage;
 
     /**
      * The enemy the turret is currently targeting.
      */
-    private GameObject enemyTarget;
+    private Transform target;
     private float timeSinceLastShot;
 
     void Update()
     {
-        if (enemyTarget == null)
+        if (target == null)
         {
             FindTarget();
             return ;
@@ -44,7 +46,7 @@ public class Unit : MonoBehaviour
 
         if (!TargetIsInRange())
         {
-            enemyTarget = null;
+            target = null;
         }
         else
         {
@@ -65,13 +67,13 @@ public class Unit : MonoBehaviour
         if (hits.Length > 0)
         {
             // get the closest enemy among the hits
-            enemyTarget = hits[0].transform.gameObject;
+            target = hits[0].transform;
         }
     }
 
     bool TargetIsInRange()
     {
-        return Vector2.Distance(rigidBody.position, enemyTarget.transform.position) <= targetingRange;
+        return Vector2.Distance(rigidBody.position, target.transform.position) <= targetingRange;
     }
 
     private void Shoot()
@@ -79,7 +81,7 @@ public class Unit : MonoBehaviour
         // instantiate a bullet and set its target to the current enemy target
         GameObject bullet = Instantiate(projectile.prefab, rigidBody.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetTarget(enemyTarget.transform);
+        bulletScript.SetTarget(target.transform);
     }
 
     void OnDrawGizmosSelected()
