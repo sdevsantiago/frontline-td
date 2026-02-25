@@ -50,4 +50,15 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen;
     }
+
+    public void ToggleSettingsMenu()
+    {
+        GameObject child = transform.GetChild(0).gameObject;
+
+        child.SetActive(!child.activeSelf);
+        if (child.activeSelf)
+            Time.timeScale = 0f;
+        else
+            Time.timeScale = 1f;
+    }
 }

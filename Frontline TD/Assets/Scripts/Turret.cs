@@ -85,7 +85,7 @@ public class Turret : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         // draw a red wire disc to visualize the turret's range when selected in the editor
-        Handles.color = Color.red;
-        Handles.DrawWireDisc(rigidBody.position, Vector3.forward, targetingRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, targetingRange);
     }
 }
