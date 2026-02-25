@@ -12,15 +12,15 @@ public abstract class Projectile : MonoBehaviour
      */
     [SerializeField] public GameObject prefab;
 
-    [Header("Attributes")]
     /**
      * The speed at which the projectile moves.
      */
-    [SerializeField] protected float speed;
+    private float speed;
+
     /**
      * The damage the projectile deals to the enemy it hits.
      */
-    [SerializeField] protected int damage;
+    private int damage;
 
     /**
      * The position the bullet is currently targeting.
@@ -33,6 +33,12 @@ public abstract class Projectile : MonoBehaviour
      * it from existing indefinitely if it misses all enemies.
      */
     private float lifetime = 5f;
+
+    public void Initialize(float speed, int damage)
+    {
+        this.speed = speed;
+        this.damage = damage;
+    }
 
     public void SetTarget(Transform position)
     {
