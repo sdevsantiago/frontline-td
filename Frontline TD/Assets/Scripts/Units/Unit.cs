@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public abstract class Unit : MonoBehaviour
@@ -16,7 +15,7 @@ public abstract class Unit : MonoBehaviour
     /**
      * The prefab for the projectile that the turret shoots.
      */
-    [SerializeField] private Projectile projectile;
+    [SerializeField] private GameObject projectilePrefab;
 
     [Header("Attributes")]
     /**
@@ -31,7 +30,7 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] private int projectileDamage;
 
     /**
-     * The enemy the turret is currently targeting.
+     * The position the turret is currently targeting.
      */
     private Transform target;
     private float timeSinceLastShot;
@@ -80,10 +79,11 @@ public abstract class Unit : MonoBehaviour
 
     private void Shoot()
     {
-        // instantiate a bullet and set its target to the current enemy target
-        GameObject bullet = Instantiate(projectile.prefab, rigidBody.position, Quaternion.identity);
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetTarget(target.transform);
+        // instantiate a projectile and set its target to the current enemy target
+        GameObject projectile = Instantiate(projectilePrefab, rigidBody.position, Quaternion.identity);
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript.Initialize(projectileSpeed, projectileDamage);
+        projectileScript.SetTarget(target.transform);
     }
 
     void OnDrawGizmosSelected()
@@ -95,7 +95,7 @@ public abstract class Unit : MonoBehaviour
 
     void RotateTowardsTarget()
     {
-        Vector2 direction = enemyTarget.transform.position - transform.position;
+        Vector2 direction = target.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0f, 0f, angle);

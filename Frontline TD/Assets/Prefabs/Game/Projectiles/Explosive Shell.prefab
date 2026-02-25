@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1906198320334887558}
   - component: {fileID: 9131920808215872921}
   - component: {fileID: 2995329775076222673}
-  - component: {fileID: 6503338006385963497}
+  - component: {fileID: -7407248894916638929}
   m_Layer: 8
   m_Name: Explosive Shell
   m_TagString: Untagged
@@ -158,7 +158,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &6503338006385963497
+--- !u!114 &-7407248894916638929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,9 +167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4255764569436600413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9588b6ed3d3b40850bba52869dfbdb62, type: 3}
+  m_Script: {fileID: 11500000, guid: 9da2d47bf7ec0f1438383b40780e4fc4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  rigidBody: {fileID: 9131920808215872921}
+  m_EditorClassIdentifier: Assembly-CSharp::ExplosiveShell
+  rigidBody: {fileID: 0}
+  prefab: {fileID: 0}
+  speed: 0
+  damage: 0
+  rigidBody: {fileID: 0}
   bulletSpeed: 10
   bulletDamage: 1

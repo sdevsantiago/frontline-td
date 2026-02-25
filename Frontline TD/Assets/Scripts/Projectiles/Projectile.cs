@@ -8,31 +8,37 @@ public abstract class Projectile : MonoBehaviour
      */
     [SerializeField] private Rigidbody2D rigidBody;
     /**
-     *
+     * The prefab for the projectile.
      */
     [SerializeField] public GameObject prefab;
 
-    [Header("Attributes")]
     /**
      * The speed at which the projectile moves.
      */
-    [SerializeField] protected float speed;
+    private float speed;
+
     /**
      * The damage the projectile deals to the enemy it hits.
      */
-    [SerializeField] protected int damage;
+    private int damage;
 
     /**
-     * The position the bullet is currently targeting.
+     * The position the projectile is currently targeting.
      */
     private Transform target;
 
     /**
-     * The lifetime of the bullet in seconds.
-     * The bullet will be destroyed after this time has passed to prevent
+     * The lifetime of the projectile in seconds.
+     * The projectile will be destroyed after this time has passed to prevent
      * it from existing indefinitely if it misses all enemies.
      */
     private float lifetime = 5f;
+
+    public void Initialize(float speed, int damage)
+    {
+        this.speed = speed;
+        this.damage = damage;
+    }
 
     public void SetTarget(Transform position)
     {
@@ -51,11 +57,11 @@ public abstract class Projectile : MonoBehaviour
 
     void Update()
     {
-        // update the bullet's lifetime
+        // update the projectile's lifetime
         lifetime -= Time.deltaTime;
         if (lifetime <= 0f)
         {
-            // destroy the bullet after its lifetime has expired
+            // destroy the projectile after its lifetime has expired
             Destroy(gameObject);
         }
     }
