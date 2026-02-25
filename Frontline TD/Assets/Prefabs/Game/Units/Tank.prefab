@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1473564056038375684}
   - component: {fileID: 1842625644154369731}
   - component: {fileID: 6830005688600867965}
-  - component: {fileID: 590987097704958823}
+  - component: {fileID: 8684973237412879019}
   m_Layer: 7
-  m_Name: Machinegunner
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14, y: 4, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2513990329448094127, guid: 9ed66fcf853443141a19bb2cdcd1b9dd, type: 3}
+  m_Sprite: {fileID: 3291394902171540140, guid: e98c57e99c4608c44a3d9401d8e10fbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.12, y: 0.52}
+    oldSize: {x: 0.84, y: 0.36}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &590987097704958823
+--- !u!114 &8684973237412879019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,13 +176,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5256552874639415465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5830772b34ceee9b06f88ed2152f82, type: 3}
+  m_Script: {fileID: 11500000, guid: c0ae3d94b64dd84ac8fa3e63ecb1dbc6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Turret
+  m_EditorClassIdentifier: Assembly-CSharp::Tank
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
-  bulletPrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 3
-  fireRate: 2
+  projectile: {fileID: 6503338006385963497, guid: 63109ccf3860e5e4db73383cb5cf0f58, type: 3}
+  targetingRange: 0
+  fireRate: 0
+  projectileSpeed: 0
+  projectileDamage: 0
