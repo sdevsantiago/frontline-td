@@ -15,12 +15,12 @@ public abstract class Projectile : MonoBehaviour
     /**
      * The speed at which the projectile moves.
      */
-    private float speed;
+    protected float speed;
 
     /**
      * The damage the projectile deals to the enemy it hits.
      */
-    private int damage;
+    protected int damage;
 
     /**
      * The position the projectile is currently targeting.
