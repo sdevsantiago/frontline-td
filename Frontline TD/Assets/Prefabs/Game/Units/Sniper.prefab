@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1473564056038375684}
   - component: {fileID: 1842625644154369731}
   - component: {fileID: 6830005688600867965}
-  - component: {fileID: 590987097704958823}
+  - component: {fileID: -4764076727706403586}
   m_Layer: 7
   m_Name: Sniper
   m_TagString: Untagged
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &590987097704958823
+--- !u!114 &-4764076727706403586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,13 +176,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5256552874639415465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5830772b34ceee9b06f88ed2152f82, type: 3}
+  m_Script: {fileID: 11500000, guid: 932ed42413c460fe4898a1373fabec8f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Turret
+  m_EditorClassIdentifier: Assembly-CSharp::Sniper
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   rigidBody: {fileID: 1842625644154369731}
   projectile: {fileID: 6503338006385963497, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 8
-  fireRate: 1
+  targetingRange: 0
+  fireRate: 0
+  projectileSpeed: 0
+  projectileDamage: 0
