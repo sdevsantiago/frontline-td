@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     [Header("References")]
     /**
@@ -14,9 +14,9 @@ public class Turret : MonoBehaviour
      */
     [SerializeField] private Rigidbody2D rigidBody;
     /**
-     * The prefab for the bullets that the turret shoots.
+     * The prefab for the projectile that the turret shoots.
      */
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Projectile projectile;
 
     [Header("Attributes")]
     /**
@@ -77,9 +77,9 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         // instantiate a bullet and set its target to the current enemy target
-        GameObject bullet = Instantiate(bulletPrefab, rigidBody.position, Quaternion.identity);
+        GameObject bullet = Instantiate(projectile.prefab, rigidBody.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.SetTarget(enemyTarget);
+        bulletScript.SetTarget(enemyTarget.transform);
     }
 
     void OnDrawGizmosSelected()
