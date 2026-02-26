@@ -17,21 +17,14 @@ public class LevelManager : MonoBehaviour
      */
     public Transform[] pathPoints;
 
+    [SerializeField] public int startingLives = 100;
+    [SerializeField] public int startingMoney = 200;
+
     private void Awake()
     {
         // set the singleton instance
         Instance = this;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

@@ -11,12 +11,6 @@ public class BuildManager : MonoBehaviour
      */
     [SerializeField] private Tower[] towers;
 
-    [Header("Attributes")]
-    /**
-     * The amount of money the player starts with.
-     */
-    [SerializeField] private int startingMoney = 100;
-
     /**
      * The current amount of money the player has.
      */
@@ -37,7 +31,7 @@ public class BuildManager : MonoBehaviour
 
     void Start()
     {
-        SetMoney(startingMoney);
+        SetMoney(LevelManager.Instance.startingMoney);
     }
 
     public int GetCurrentMoney()
