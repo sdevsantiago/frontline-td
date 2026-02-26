@@ -183,8 +183,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
-  projectile: {fileID: 6503338006385963497, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 0
-  fireRate: 0
-  projectileSpeed: 0
-  projectileDamage: 0
+  projectilePrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
+  targetingRange: 2
+  fireRate: 1
+  cost: 100
+  projectileSpeed: 2
+  projectileDamage: 1
+  prefab: {fileID: 5256552874639415465}

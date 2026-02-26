@@ -11,28 +11,35 @@ public abstract class Unit : MonoBehaviour
     /**
      * The Rigidbody2D component of the turret.
      */
-    [SerializeField] private Rigidbody2D rigidBody;
+    [SerializeField] protected Rigidbody2D rigidBody;
     /**
      * The prefab for the projectile that the turret shoots.
      */
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] protected GameObject projectilePrefab;
 
     [Header("Attributes")]
     /**
      * The distance at which the turret can detect and shoot enemies.
      */
-    [SerializeField] private float targetingRange;
+    [SerializeField] protected float targetingRange;
     /**
      * The rate at which the turret shoots per second.
      */
-    [SerializeField] private float fireRate;
-    [SerializeField] private float projectileSpeed;
-    [SerializeField] private int projectileDamage;
+    [SerializeField] protected float fireRate;
+    public int cost;
+    [SerializeField] protected float projectileSpeed;
+    [SerializeField] protected int projectileDamage;
+    protected ProjectileAttributes projectileAttributes;
 
+    void Awake()
+    {
+        projectileAttributes = new ProjectileAttributes(projectileSpeed, projectileDamage);
+    }
+    
     /**
      * The position the turret is currently targeting.
      */
-    private Transform target;
+    protected Transform target;
     private float timeSinceLastShot;
 
     void Update()
@@ -77,13 +84,13 @@ public abstract class Unit : MonoBehaviour
         return Vector2.Distance(rigidBody.position, target.transform.position) <= targetingRange;
     }
 
-    private void Shoot()
+    protected void Shoot()
     {
         // instantiate a projectile and set its target to the current enemy target
         GameObject projectile = Instantiate(projectilePrefab, rigidBody.position, Quaternion.identity);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
-        projectileScript.Initialize(projectileSpeed, projectileDamage);
-        projectileScript.SetTarget(target.transform);
+        projectileScript.Initialize(projectileAttributes);
+        projectileScript.SetTarget(target);
     }
 
     void OnDrawGizmosSelected()

@@ -159,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.18}
+    oldSize: {x: 1.12, y: 0.72}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -183,8 +183,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
-  projectile: {fileID: 6503338006385963497, guid: 63109ccf3860e5e4db73383cb5cf0f58, type: 3}
+  projectilePrefab: {fileID: 4255764569436600413, guid: 63109ccf3860e5e4db73383cb5cf0f58, type: 3}
   targetingRange: 0
   fireRate: 0
+  cost: 0
   projectileSpeed: 0
   projectileDamage: 0
+  prefab: {fileID: 0}

@@ -1,16 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Projectile : MonoBehaviour
 {
-    [Header("References")]
     /**
      * The Rigidbody2D component of the projectile.
      */
-    [SerializeField] private Rigidbody2D rigidBody;
-    /**
-     * The prefab for the projectile.
-     */
-    [SerializeField] public GameObject prefab;
+    private Rigidbody2D rigidBody;
 
     /**
      * The speed at which the projectile moves.
@@ -34,15 +30,10 @@ public abstract class Projectile : MonoBehaviour
      */
     private float lifetime = 5f;
 
-    public void Initialize(float speed, int damage)
-    {
-        this.speed = speed;
-        this.damage = damage;
-    }
 
-    public void SetTarget(Transform position)
+    void Awake()
     {
-        target = position;
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -57,13 +48,28 @@ public abstract class Projectile : MonoBehaviour
 
     void Update()
     {
-        // update the projectile's lifetime
+        UpdateLifetime();
+    }
+
+    private void UpdateLifetime()
+    {
         lifetime -= Time.deltaTime;
         if (lifetime <= 0f)
         {
             // destroy the projectile after its lifetime has expired
             Destroy(gameObject);
         }
+    }
+
+    virtual public void Initialize(ProjectileAttributes attributes)
+    {
+        speed = attributes.Speed;
+        damage = attributes.Damage;
+    }
+
+    public void SetTarget(Transform position)
+    {
+        target = position;
     }
 
     void RotateTowardsTarget()
