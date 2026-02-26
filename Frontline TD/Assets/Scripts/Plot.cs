@@ -62,5 +62,7 @@ public class Plot : MonoBehaviour
 
         // instantiate the selected tower on this plot
         currentTower = Instantiate(tower.prefab, transform.position, Quaternion.identity);
+
+        BuildManager.Instance.SetSelectedTower(-1);
     }
 }

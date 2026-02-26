@@ -25,7 +25,9 @@ public class BuildManager : MonoBehaviour
     /**
      * The index of the currently selected tower in the towerPrefabs array.
      */
-    private int? selectedTowerIndex;
+    private int selectedTowerIndex = -1;
+
+    [SerializeField] private Transform plots;
 
     void Awake()
     {
@@ -72,15 +74,35 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public Tower GetSelectedTower()
+    public void SetSelectedTower(int index)
     {
-        if (selectedTowerIndex == null)
-            return null;
-        return towers[(int)selectedTowerIndex];
+        if (index < 0 || index >= towers.Length || index == selectedTowerIndex)
+        {
+            selectedTowerIndex = -1;
+            foreach (Transform child in plots)
+            {
+                if (child.childCount > 0)
+                {
+                    child.GetChild(0).gameObject.SetActive(false);
+                }
+            }
+            return;
+        }
+        foreach (Transform child in plots)
+        {
+            if (child.childCount > 0)
+            {
+                child.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+        selectedTowerIndex = index;
     }
 
-    public void SetSelectedTower(int selectedTower)
+    public Tower GetSelectedTower()
     {
-        selectedTowerIndex = selectedTower;
+        if (selectedTowerIndex < 0)
+            return null;
+
+        return towers[selectedTowerIndex];
     }
 }
