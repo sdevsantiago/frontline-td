@@ -43,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
             if (currentPathPointIndex >= LevelManager.Instance.pathPoints.Length)
             {
                 // if the enemy has reached the end of the path, destroy it
+                PlayerManager.Instance.TakeDamage(gameObject.GetComponent<Health>().damage);
                 Destroy(gameObject);
                 return;
             }

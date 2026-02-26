@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -7,6 +8,7 @@ public class Health : MonoBehaviour
      * The maximum health of the object.
      */
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] public int damage = 1;
     /**
      * The amount of money rewarded to the player when this object is destroyed.
      */
