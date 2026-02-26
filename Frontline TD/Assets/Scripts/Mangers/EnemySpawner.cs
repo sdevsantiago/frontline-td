@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
+    public static EnemySpawner Instance;
+
     [Header("References")]
     /**
      * The enemy prefabs to spawn.
@@ -50,6 +53,11 @@ public class EnemySpawner : MonoBehaviour
      */
     private bool isSpawning = false;
 
+    void Awake()
+    {
+        // set the singleton instance
+        Instance = this;
+    }
 
     void Start()
     {
@@ -94,5 +102,10 @@ public class EnemySpawner : MonoBehaviour
     int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemyCount * Mathf.Pow(currentWave, difficultyMultiplier));
+    }
+
+    public int GetCurrentWave()
+    {
+        return currentWave;
     }
 }

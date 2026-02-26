@@ -7,7 +7,6 @@ public class ShopMenu : MonoBehaviour
     /**
      * The component that displays the player's current money.
      */
-    [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private Animator animator;
 
     private bool isOpen = true;
@@ -16,11 +15,6 @@ public class ShopMenu : MonoBehaviour
     {
         isOpen = !isOpen;
         animator.SetBool("isMenuOpen", isOpen);
-    }
-
-    void OnGUI()
-    {
-        moneyText.text = BuildManager.Instance.GetCurrentMoney().ToString();
     }
 
     public void SetSelectedTower(int selectedTower)

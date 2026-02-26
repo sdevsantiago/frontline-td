@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         currentLives -= damage;
         if (currentLives <= 0)
         {
+            currentLives = 0;
             GameOver();
         }
     }
@@ -28,5 +29,11 @@ public class PlayerManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0f; // pause the game
+        UI.Instance.Muriste();
+    }
+
+    public int GetCurrentLives()
+    {
+        return currentLives;
     }
 }

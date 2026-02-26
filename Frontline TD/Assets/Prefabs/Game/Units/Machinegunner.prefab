@@ -184,7 +184,8 @@ MonoBehaviour:
     m_Bits: 64
   rigidBody: {fileID: 1842625644154369731}
   projectilePrefab: {fileID: 4255764569436600413, guid: 468d4d86611e4bc58b14aa4f2826b9ca, type: 3}
-  targetingRange: 0
-  fireRate: 0
-  projectileSpeed: 0
-  projectileDamage: 0
+  targetingRange: 2
+  fireRate: 2
+  cost: 245
+  projectileSpeed: 5
+  projectileDamage: 1

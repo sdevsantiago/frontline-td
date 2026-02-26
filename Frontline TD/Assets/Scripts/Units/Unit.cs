@@ -107,4 +107,9 @@ public abstract class Unit : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
+
+    public float GetTargetingRange()
+    {
+        return targetingRange;
+    }
 }

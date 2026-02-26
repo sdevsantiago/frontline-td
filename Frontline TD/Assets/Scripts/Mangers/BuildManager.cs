@@ -77,7 +77,7 @@ public class BuildManager : MonoBehaviour
             {
                 if (child.childCount > 0)
                 {
-                    child.GetChild(0).gameObject.SetActive(false);
+                    child.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
             return;
@@ -86,7 +86,7 @@ public class BuildManager : MonoBehaviour
         {
             if (child.childCount > 0)
             {
-                child.GetChild(0).gameObject.SetActive(true);
+                child.GetChild(0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
         }
         selectedTowerIndex = index;

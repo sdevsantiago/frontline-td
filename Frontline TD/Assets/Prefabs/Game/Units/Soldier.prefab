@@ -187,6 +187,5 @@ MonoBehaviour:
   targetingRange: 2
   fireRate: 1
   cost: 100
-  projectileSpeed: 2
+  projectileSpeed: 5
   projectileDamage: 1
-  prefab: {fileID: 5256552874639415465}
