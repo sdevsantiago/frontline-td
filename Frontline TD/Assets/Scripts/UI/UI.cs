@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UI : MonoBehaviour
@@ -44,5 +45,10 @@ public class UI : MonoBehaviour
     {
         GameOver.SetActive(true);
         ShopMenu.SetActive(false);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

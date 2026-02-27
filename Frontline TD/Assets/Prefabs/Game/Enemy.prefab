@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3740667869569422380}
   - component: {fileID: 1473564056038375684}
   - component: {fileID: 1842625644154369731}
-  - component: {fileID: 6830005688600867965}
+  - component: {fileID: 3039487883436591344}
   - component: {fileID: 1551108661242768571}
   - component: {fileID: 1367048379115495129}
   m_Layer: 6
@@ -122,8 +122,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6830005688600867965
-BoxCollider2D:
+--- !u!58 &3039487883436591344
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -157,17 +157,7 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!114 &1551108661242768571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,4 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 3
+  damage: 1
   moneyReward: 50
