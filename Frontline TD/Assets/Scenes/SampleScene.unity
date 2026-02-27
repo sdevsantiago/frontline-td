@@ -18785,6 +18785,7 @@ MonoBehaviour:
   baseSpeedMultiplier: 1
   speedScaleExponent: 0.3
   timeBetweenWavesSeconds: 10
+  isMapDirectionLeftToRight: 1
 --- !u!114 &1539749309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18807,9 +18808,6 @@ MonoBehaviour:
   - name: Tank
     cost: 350
     prefab: {fileID: 5256552874639415465, guid: a0925d7cd78be0a699de064e60056e33, type: 3}
-  - name: Artillery
-    cost: 500
-    prefab: {fileID: 5256552874639415465, guid: 4c9ecea690fb01eed8773d41b815e3c4, type: 3}
   - name: Sniper
     cost: 375
     prefab: {fileID: 5256552874639415465, guid: 8f5b03e5d9c0b27bbb9b7d63de1aa528, type: 3}
