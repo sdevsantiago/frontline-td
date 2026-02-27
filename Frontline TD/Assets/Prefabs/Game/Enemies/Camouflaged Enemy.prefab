@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1551108661242768571}
   - component: {fileID: 1367048379115495129}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Camouflaged Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 1}
+  m_Color: {r: 0, g: 0.3584906, b: 0.038520243, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   rigidBody: {fileID: 1842625644154369731}
-  movementSpeed: 2
+  movementSpeed: 2.75
 --- !u!114 &1367048379115495129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,4 +195,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 3
-  moneyReward: 50
+  damage: 5
+  moneyReward: 150
