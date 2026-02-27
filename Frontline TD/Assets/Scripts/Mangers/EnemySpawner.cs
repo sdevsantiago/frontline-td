@@ -95,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
 
     void StartWave()
     {
+        Time.timeScale = 1f;
         enemiesLeftToSpawn = EnemiesPerWave();
         isSpawning = true;
     }
