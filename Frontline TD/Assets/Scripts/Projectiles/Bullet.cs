@@ -6,9 +6,15 @@ public class Bullet : Projectile
     {
         // deal damage to the enemy
         GameObject enemy = collision.gameObject;
-        enemy.GetComponent<Health>().TakeDamage(damage);
+
+        if (enemy.GetComponent<EnemyMovement>().enemyType != EnemyType.Armored)
+        {
+            // deal damage if enemy is not armored
+            enemy.GetComponent<Health>().TakeDamage(damage);
+        }
 
         // destroy the bullet
         Destroy(gameObject);
+
     }
 }

@@ -189,3 +189,4 @@ MonoBehaviour:
   cost: 0
   projectileSpeed: 10
   projectileDamage: 5
+  canTargetCamouflaged: 1

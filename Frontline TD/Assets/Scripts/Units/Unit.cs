@@ -29,6 +29,7 @@ public abstract class Unit : MonoBehaviour
     public int cost;
     [SerializeField] protected float projectileSpeed;
     [SerializeField] protected int projectileDamage;
+    [SerializeField] bool canTargetCamouflaged;
     protected ProjectileAttributes projectileAttributes;
 
     void Awake()
@@ -50,7 +51,7 @@ public abstract class Unit : MonoBehaviour
             return ;
         }
 
-        if (!TargetIsInRange())
+        if (!TargetIsInRange() || !TargetIsVisible())
         {
             target = null;
         }
@@ -82,6 +83,30 @@ public abstract class Unit : MonoBehaviour
     bool TargetIsInRange()
     {
         return Vector2.Distance(rigidBody.position, target.transform.position) <= targetingRange;
+    }
+
+    bool TargetIsVisible()
+    {
+        GameObject enemy;
+
+        if (target == null)
+        {
+            throw new System.Exception("Target is null");
+        }
+
+        enemy = target.gameObject;
+
+        if (enemy == null)
+        {
+            throw new System.Exception("Enemy has no game object");
+        }
+
+        if (EnemyType.Camouflaged == enemy.GetComponent<EnemyMovement>().enemyType
+            && !canTargetCamouflaged)
+        {
+            return false;
+        }
+        return true;
     }
 
     protected void Shoot()

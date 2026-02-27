@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
      * The speed at which the enemy moves.
      */
     [SerializeField] public float movementSpeed = 2f;
+    [SerializeField] public EnemyType enemyType;
 
     /**
      * The point the enemy is moving towards.
