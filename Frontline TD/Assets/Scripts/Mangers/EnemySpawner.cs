@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -101,6 +102,8 @@ public class EnemySpawner : MonoBehaviour
         new[] { 10,   10,  15,  20,  25,  30 },
         new[] { 20,    5,  10,  15,  30,  40 },
     };
+
+    [SerializeField] private bool isMapDirectionLeftToRight = true;
 
     void Awake()
     {
@@ -212,6 +215,11 @@ public class EnemySpawner : MonoBehaviour
             enemyPrefabs[typeIndex],
             LevelManager.Instance.enemySpawnPoint.position,
             Quaternion.identity);
+
+        if (!isMapDirectionLeftToRight)
+        {
+            enemy.transform.rotation = Quaternion.Euler(0f, 180f, 0f); // rotate to face left
+        }
 
         Health health = enemy.GetComponent<Health>();
         if (health != null)
