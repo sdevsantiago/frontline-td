@@ -30,19 +30,23 @@ public abstract class Projectile : MonoBehaviour
      */
     private float lifetime = 5f;
 
+    private float baseSpeed = 5f;
+
+    [SerializeField] private AudioClip shootSound;
+    protected AudioSource audioSource;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
     }
-
+    
     void FixedUpdate()
     {
         if (!target) return ;
 
         Vector2 direction = (target.transform.position - transform.position).normalized;
 
-        rigidBody.linearVelocity = speed * direction;
+        rigidBody.linearVelocity = (speed * baseSpeed) * direction;
         RotateTowardsTarget();
     }
 

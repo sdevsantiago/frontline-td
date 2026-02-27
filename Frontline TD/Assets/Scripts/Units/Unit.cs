@@ -32,6 +32,9 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] bool canTargetCamouflaged;
     protected ProjectileAttributes projectileAttributes;
 
+    public AudioSource audioSource;
+    public AudioClip shootSound;
+
     void Awake()
     {
         projectileAttributes = new ProjectileAttributes(projectileSpeed, projectileDamage);
@@ -116,6 +119,7 @@ public abstract class Unit : MonoBehaviour
         Projectile projectileScript = projectile.GetComponent<Projectile>();
         projectileScript.Initialize(projectileAttributes);
         projectileScript.SetTarget(target);
+        audioSource.PlayOneShot(shootSound);
     }
 
     void OnDrawGizmosSelected()

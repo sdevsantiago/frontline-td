@@ -16,5 +16,5 @@ public class Bullet : Projectile
         // destroy the bullet
         Destroy(gameObject);
 
-    }
+    }   
 }

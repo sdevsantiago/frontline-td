@@ -8,6 +8,8 @@ public class ExplosiveShell : Projectile
      */
     private float explosionRadius;
 
+    public GameObject explosionPrefab;
+
     override public void Initialize(ProjectileAttributes attributes)
     {
         base.Initialize(attributes);
@@ -16,6 +18,7 @@ public class ExplosiveShell : Projectile
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         // get enemies in the explosion radius
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, LayerMask.GetMask("Enemy"));
         // apply damage to each enemy in the explosion radius

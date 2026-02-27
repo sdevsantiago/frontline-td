@@ -39,4 +39,15 @@ public class Health : MonoBehaviour
         // reward the player with money for destroying this object
         BuildManager.Instance.AddMoney(moneyReward);
     }
+
+    public int GetMaxHealth()
+{
+    return maxHealth;
+}
+
+public void SetMaxHealth(int newMax)
+{
+    maxHealth = newMax;
+    currentHealth = newMax;
+}
 }
